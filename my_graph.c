@@ -2,7 +2,7 @@
 #include "my_math.h"
 
 #ifndef SIZE
-#define SIZE  3 // size of matrix board
+#define SIZE  10 // size of matrix board
 #endif
 
 int main()
@@ -14,6 +14,7 @@ int main()
     scanf("%c",&functionToCall);
     while (functionToCall - 'D' != 0 || !EOF)
     {
+        //switch()
         if(functionToCall - 'A' == 0){
              for (int i = 0; i < SIZE; i++) 
              {
@@ -40,7 +41,7 @@ int main()
             int ans = shortest_path(x,y,graph);
             printf("%d\n", ans);
         }
-        
+
         scanf("%c",&functionToCall);
 
     }
