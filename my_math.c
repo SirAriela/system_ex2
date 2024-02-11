@@ -1,50 +1,71 @@
 #include "my_math.h"
+#include "stdio.h"
 #ifndef SIZE
-#define SIZE 10 // size of matrix board
+#define SIZE 3 // size of matrix board
 #endif
+#define INFINITE 9999
 
-#define NO_PATH -1
-#define INF 99999 // Just an example, use an appropriate value based on your application
+int shortest_pathhelp(int x, int y, int graph[][SIZE], int graph2[SIZE], int soFer);
 
-int shortest_pathhelp(int x, int y, int graph[][SIZE], int graph2[SIZE], int soFer)
+int is_there_path(int x, int y, int graph[][SIZE])
 {
-    if (x < 0 || x >= SIZE || y < 0 || y >= SIZE)
-    {
-        return NO_PATH; // Input coordinates out of range
-    }
-
+    int t = shortest_path(x, y, graph);
     if (x == y)
+        return 0;
+
+    if (t != -1)
     {
-        return soFer;
-    }
-    graph2[x] = 1;
-    int i;
-    int e;
-    int j = INF; // Initialize with a large value
-    for (i = 0; i < SIZE; i++)
-    {
-        if (graph[x][i] == 1 && graph2[i] == 0)
-        {
-            e = shortest_pathhelp(i, y, graph, graph2, soFer + 1);
-            if (e != NO_PATH && e < j)
-            {
-                j = e;
-            }
-        }
+        return 1;
     }
 
-    return (j == INF) ? NO_PATH : j; // Return NO_PATH if no valid path found
+    return 0;
 }
 
 int shortest_path(int x, int y, int graph[][SIZE])
 {
     int graph2[SIZE] = {0};
     int t = shortest_pathhelp(x, y, graph, graph2, 0);
+    if (t == INFINITE)
+    {
+        return -1;
+    }
     return t;
 }
 
-int is_there_path(int x, int y, int graph[][SIZE])
+int shortest_pathhelp(int x, int y, int graph[][SIZE], int graph2[SIZE], int soFer)
 {
-    int t = shortest_path(x, y, graph);
-    return (t != NO_PATH);
+    if (x == y)
+    {
+        return soFer;
+    }
+
+    graph2[x] = 1;
+
+    int i;
+    int e;
+    int j = INFINITE;
+    for (i = 0; i < SIZE; i++)
+    {
+        if (graph[x][i] == 1 && graph2[i] == 0)
+        {
+            e = shortest_pathhelp(i, y, graph, graph2, soFer + 1);
+            if ((e) < j)
+            {
+                j = e;
+            }
+        }
+    }
+    return j;
+}
+
+int getData(int graph[][SIZE])
+{
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = 0; j < SIZE; j++)
+        {
+            scanf("%d", &graph[i][j]);
+        }
+    }
+    return 0;
 }

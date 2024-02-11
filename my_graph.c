@@ -2,7 +2,7 @@
 #include "my_math.h"
 
 #ifndef SIZE
-#define SIZE  10 // size of matrix board
+#define SIZE  3 // size of matrix board
 #endif
 
 int main()
@@ -16,13 +16,7 @@ int main()
     {
         //switch()
         if(functionToCall - 'A' == 0){
-             for (int i = 0; i < SIZE; i++) 
-             {
-                for (int j = 0; j < SIZE; j++) 
-                {
-                    scanf("%d", &graph[i][j]);
-                }
-             }
+             
         }
 
         if(functionToCall - 'B' == 0){
