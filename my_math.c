@@ -1,19 +1,49 @@
 #include "my_math.h"
 #include "stdio.h"
-#ifndef SIZE
-#define SIZE 3 // size of matrix board
-#endif
-#define INFINITE 9999
 
-int shortest_pathhelp(int x, int y, int graph[][SIZE], int graph2[SIZE], int soFer);
+#ifndef SIZE
+#define SIZE 10 // size of matrix board
+#endif
+#define INF 999999
+
+int shortest_pathhelp(int x, int y, int graph[][SIZE], int graph2[SIZE], int soFer)
+{
+    if (x == y)
+    {
+        return soFer;
+    }
+    graph2[x] = 1;
+    int graph3[SIZE];
+    for (int i = 0; i < SIZE; i++)
+    {
+        graph3[i] = graph2[i];
+        /* code */
+    }
+
+    int i;
+    int e;
+    int j = INF;
+    for (i = 0; i < SIZE; i++)
+    {
+        if (graph[x][i] > 0 && graph2[i] == 0)
+        {
+            e = shortest_pathhelp(i, y, graph, graph3, soFer + graph[x][i]);
+            if (e < j)
+            {
+                j = e;
+            }
+        }
+    }
+
+    return j;
+}
 
 int is_there_path(int x, int y, int graph[][SIZE])
 {
-    int t = shortest_path(x, y, graph);
     if (x == y)
         return 0;
-
-    if (t != -1)
+    int t = shortest_path(x, y, graph);
+    if (t > -1)
     {
         return 1;
     }
@@ -25,37 +55,11 @@ int shortest_path(int x, int y, int graph[][SIZE])
 {
     int graph2[SIZE] = {0};
     int t = shortest_pathhelp(x, y, graph, graph2, 0);
-    if (t == INFINITE)
+    if (t == INF)
     {
         return -1;
     }
     return t;
-}
-
-int shortest_pathhelp(int x, int y, int graph[][SIZE], int graph2[SIZE], int soFer)
-{
-    if (x == y)
-    {
-        return soFer;
-    }
-
-    graph2[x] = 1;
-
-    int i;
-    int e;
-    int j = INFINITE;
-    for (i = 0; i < SIZE; i++)
-    {
-        if (graph[x][i] == 1 && graph2[i] == 0)
-        {
-            e = shortest_pathhelp(i, y, graph, graph2, soFer + 1);
-            if ((e) < j)
-            {
-                j = e;
-            }
-        }
-    }
-    return j;
 }
 
 int getData(int graph[][SIZE])
