@@ -24,7 +24,8 @@ int shortest_path(int x, int y, int graph[][SIZE])
             dist[i][j] = graph[i][j];
         }
     }
-    for (k = x; k < SIZE; k++)
+
+    for (k = 0; k < SIZE; k++)
     {
         for (i = 0; i < SIZE; i++)
         {
@@ -33,7 +34,9 @@ int shortest_path(int x, int y, int graph[][SIZE])
                 if (dist[i][k] != 0 && dist[k][j] != 0)
                 {
                     if (dist[i][j] > (dist[i][k] + dist[k][j]))
+                    {
                         dist[i][j] = dist[i][k] + dist[k][j];
+                    }
                 }
             }
         }
