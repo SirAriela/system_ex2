@@ -41,7 +41,7 @@ int shortest_pathhelp(int x, int y, int graph[][SIZE], int graph2[SIZE], int soF
 int is_there_path(int x, int y, int graph[][SIZE])
 {
     if (x == y)
-        return 0;
+        return -1;
     int t = shortest_path(x, y, graph);
     if (t > -1)
     {

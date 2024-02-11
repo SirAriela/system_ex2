@@ -24,7 +24,8 @@ int main()
             int y;
             scanf("%d %d",&x,&y);
             int ans = is_there_path(x,y,graph);
-            printf("%s\n", ans ? "True" : "False");
+            if(ans == -1) printf("False\n");
+            else printf("True\n");
         }
 
         if(functionToCall - 'C' == 0)
