@@ -22,7 +22,7 @@ int main()
         if(functionToCall - 'B' == 0){
             int x;
             int y;
-            scanf("%d %d",&x,&y);
+            scanf(" %d %d",&x,&y);
             int ans = is_there_path(x,y,graph);
             if(ans == -1) printf("False\n");
             else printf("True\n");
@@ -32,12 +32,12 @@ int main()
         {
             int x;
             int y;
-            scanf("%d %d",&x,&y);
+            scanf(" %d %d",&x,&y);
             int ans = shortest_path(x,y,graph);
             printf("%d\n", ans);
         }
 
-        scanf("%c",&functionToCall);
+        scanf(" %c",&functionToCall);
 
     }
 

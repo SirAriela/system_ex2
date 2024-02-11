@@ -16,8 +16,8 @@ int makeNewItems(int values[], int weights[], char items[])
     for (i = 0; i < ARRAY_SIZE; i++)
     {
         scanf(" %c", &items[i]);
-        scanf("%d", &values[i]);
-        scanf("%d", &weights[i]);
+        scanf(" %d", &values[i]);
+        scanf(" %d", &weights[i]);
     }
     return 0;
 }
