@@ -107,5 +107,6 @@ int main()
             printf(" ");
         }
     }
+    printf("\b");
     printf("\n");
 }
