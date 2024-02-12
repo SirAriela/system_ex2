@@ -98,6 +98,8 @@ int main()
     printf("Maximum profit: %d", max_profit);
     printf("\n");
 
+
+    //char bla[ARRAY_SIZE];
     printf("Selected items: ");
     for (i = 0; i < ARRAY_SIZE; i++)
     {
@@ -107,6 +109,6 @@ int main()
             printf(" ");
         }
     }
-    printf("\b");
-    printf("\n");
+    printf("\r");
+    printf("\n\b");
 }
