@@ -95,7 +95,7 @@ int main()
     makeNewItems(values, weights, items); // gets new values and weights
     max_profit = knapSack(weights, values, selected_bool);
 
-    printf("Maximim profit: %d", max_profit);
+    printf("Maximum profit: %d", max_profit);
     printf("\n");
 
     printf("Selected items: ");
