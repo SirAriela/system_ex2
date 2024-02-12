@@ -8,6 +8,7 @@
 int is_there_path(int x, int y, int graph[][SIZE])
 {
     int t = shortest_path(x, y, graph);
+    printf(" %d\n",t);
     return t;
 }
 
@@ -30,7 +31,8 @@ int shortest_path(int x, int y, int graph[][SIZE])
             if(i != j){
 
                 for (k = 0; k < SIZE; k++){
-
+                    printf(" %d\n",dist[i][k]);
+                    printf(" %d", dist[i][k] + dist[k][j]);
                     if((dist[i][k] > 0 && dist[k][j] > 0)){
                         if (dist[i][j] == 0 ||  dist[i][j] > (dist[i][k] + dist[k][j]))
                         {
@@ -59,7 +61,7 @@ int getData(int graph[][SIZE])
     {
         for (int j = 0; j < SIZE; j++)
         {
-            scanf("%d ", &graph[i][j]);
+            scanf(" %d ", &graph[i][j]);
         }
     }
     return 0;
