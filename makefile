@@ -1,11 +1,11 @@
 CC=gcc
 AR=ar
 OBJECTS_MAIN1=my_graph.o 
-OBJECTS_MAIN2=my_knapsack.o
+OBJECTS_MAIN2=my_Knapsack.o
 OBJECTS_LIB=my_math.o
 FLAGS= -Wall -g
 
-all: my_graph my_knapsack
+all: my_graph my_Knapsack
 
 my_math.a: $(OBJECTS_LIB) 
 	$(AR) rcs my_math.a $(OBJECTS_LIB)
@@ -20,11 +20,11 @@ my_math.o: $(OBJECTS_LIB)
 my_graph.o: my_graph.c 
 	$(CC) $(FLAGS) -c my_graph.c
 
-my_knapsack: $(OBJECTS_MAIN2) 
-	$(CC) $(FLAGS) -o my_knapsack $(OBJECTS_MAIN2)
+my_Knapsack: $(OBJECTS_MAIN2) 
+	$(CC) $(FLAGS) -o my_Knapsack $(OBJECTS_MAIN2)
 
-my_knapsack.o: my_knapsack.c 
-	$(CC) $(FLAGS) -c my_knapsack.c
+my_Knapsack.o: my_Knapsack.c 
+	$(CC) $(FLAGS) -c my_Knapsack.c
 
 clean:
 	rm -f *.o *.a my_graph my_knapsack

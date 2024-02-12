@@ -7,8 +7,6 @@
 
 int is_there_path(int x, int y, int graph[][SIZE])
 {
-    if (x == y)
-        return -1;
     int t = shortest_path(x, y, graph);
     return t;
 }
