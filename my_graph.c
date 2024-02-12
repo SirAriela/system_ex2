@@ -11,7 +11,6 @@ int main()
     char functionToCall;
 
     scanf(" %c ", &functionToCall);
-    printf("%c\n",functionToCall);
     while (functionToCall - 'D' != 0 || !EOF)
     {
         // switch()
@@ -25,7 +24,6 @@ int main()
             int x;
             int y;
             scanf(" %d %d", &x, &y);
-            printf(" %d %d\n",x,y);
             int ans = is_there_path(x, y, graph);
             if (ans == -1)
                 printf("False\n");
@@ -38,13 +36,12 @@ int main()
             int x;
             int y;
             scanf(" %d %d", &x, &y);
-            printf(" %d %d\n",x,y);
             int ans = shortest_path(x, y, graph);
             printf("%d\n", ans);
         }
 
         scanf(" %c ", &functionToCall);
-         printf(" %c\n",functionToCall);
+        
     }
 
     return 0;

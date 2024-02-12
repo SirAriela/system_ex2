@@ -4,11 +4,11 @@
 #ifndef SIZE
 #define SIZE 10 // size of matrix board
 #endif
+#define DEBUG 1
 
 int is_there_path(int x, int y, int graph[][SIZE])
 {
     int t = shortest_path(x, y, graph);
-    printf(" %d\n",t);
     return t;
 }
 
@@ -23,29 +23,31 @@ int shortest_path(int x, int y, int graph[][SIZE])
             dist[i][j] = graph[i][j];
         }
     }
-
-    for (i = 0; i < SIZE; i++)
+    for (int t = 0; t < 3; t++)
     {
-        for (j = 0; j < SIZE; j++)
+        for (i = 0; i < SIZE; i++)
         {
-            if(i != j){
+            for (j = 0; j < SIZE; j++)
+            {
+                if (i != j)
+                {
 
-                for (k = 0; k < SIZE; k++){
-                    printf(" %d\n",dist[i][k]);
-                    printf(" %d", dist[i][k] + dist[k][j]);
-                    if((dist[i][k] > 0 && dist[k][j] > 0)){
-                        if (dist[i][j] == 0 ||  dist[i][j] > (dist[i][k] + dist[k][j]))
+                    for (k = 0; k < SIZE; k++)
+                    {
+                        if (i != k && j != k)
                         {
-                            dist[i][j] = dist[i][k] + dist[k][j];
+                            if (dist[i][k] > 0 && (dist[k][j] > 0))
+                            {
+                                if (dist[i][j] == 0 || dist[i][j] > (dist[i][k] + dist[k][j]))
+                                {
+                                    dist[i][j] = dist[i][k] + dist[k][j];
+                                }
+                            }
                         }
                     }
-                
                 }
-    
             }
-           
         }
-        
     }
 
     if (dist[x][y] == 0)
@@ -61,7 +63,7 @@ int getData(int graph[][SIZE])
     {
         for (int j = 0; j < SIZE; j++)
         {
-            scanf(" %d ", &graph[i][j]);
+            scanf(" %d", &graph[i][j]);
         }
     }
     return 0;
