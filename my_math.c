@@ -59,7 +59,7 @@ int getData(int graph[][SIZE])
     {
         for (int j = 0; j < SIZE; j++)
         {
-            scanf(" %d", &graph[i][j]);
+            scanf("%d ", &graph[i][j]);
         }
     }
     return 0;
