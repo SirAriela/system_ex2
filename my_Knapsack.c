@@ -105,10 +105,16 @@ int main()
     {
         if (selected_bool[i] == 1)
         {
+            int j=i+1;
             printf("%c", items[i]);
-            printf(" ");
+            while(j<5){
+                if(selected_bool[j] == 1){
+                    printf(" ");
+                    break;
+                }
+                j++;
+            }
         }
     }
-    printf("\r");
-    printf("\n\b");
+    printf("\n");
 }
