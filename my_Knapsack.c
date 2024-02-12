@@ -98,23 +98,24 @@ int main()
     printf("Maximum profit: %d", max_profit);
     printf("\n");
 
-
-    //char bla[ARRAY_SIZE];
+    char aa[11];
+    int rr = 0;
     printf("Selected items: ");
     for (i = 0; i < ARRAY_SIZE; i++)
     {
         if (selected_bool[i] == 1)
         {
-            int j=i+1;
-            printf("%c", items[i]);
-            while(j<5){
-                if(selected_bool[j] == 1){
-                    printf(" ");
-                    break;
-                }
-                j++;
-            }
+            // printf("%c", items[i]);
+            aa[rr] = items[i];
+            aa[rr + 1] = ' ';
+            rr += 2;
+            // printf(" ");
         }
+    }
+    // printf("\b");
+    for (i = 0; i < rr - 1; i++)
+    {
+        printf("%c",aa[i]);
     }
     printf("\n");
 }
