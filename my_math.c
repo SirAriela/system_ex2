@@ -25,22 +25,29 @@ int shortest_path(int x, int y, int graph[][SIZE])
         }
     }
 
-    for (k = 0; k < SIZE; k++)
+    for (i = 0; i < SIZE; i++)
     {
-        for (i = 0; i < SIZE; i++)
+        for (j = 0; j < SIZE; j++)
         {
-            for (j = 0; j < SIZE; j++)
-            {
-                if (dist[i][k] != 0 && dist[k][j] != 0)
-                {
-                    if (dist[i][j] > (dist[i][k] + dist[k][j]))
-                    {
-                        dist[i][j] = dist[i][k] + dist[k][j];
+            if(i != j){
+
+                for (k = 0; k < SIZE; k++){
+
+                    if((dist[i][k] > 0 && dist[k][j] > 0)){
+                        if (dist[i][j] == 0 ||  dist[i][j] > (dist[i][k] + dist[k][j]))
+                        {
+                            dist[i][j] = dist[i][k] + dist[k][j];
+                        }
                     }
+                
                 }
+    
             }
+           
         }
+        
     }
+
     if (dist[x][y] == 0)
     {
         return -1;
@@ -54,7 +61,7 @@ int getData(int graph[][SIZE])
     {
         for (int j = 0; j < SIZE; j++)
         {
-            scanf(" %d", &graph[i][j]);
+            scanf("%d", &graph[i][j]);
         }
     }
     return 0;
