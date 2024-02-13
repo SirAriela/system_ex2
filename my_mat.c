@@ -1,4 +1,4 @@
-#include "my_math.h"
+#include "my_mat.h"
 #include "stdio.h"
 
 #ifndef SIZE

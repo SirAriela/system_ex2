@@ -1,5 +1,5 @@
 #include "stdio.h"
-#include "my_math.h"
+#include "my_mat.h"
 
 #ifndef SIZE
 #define SIZE 10 // size of matrix board
