@@ -92,30 +92,20 @@ int main()
     int selected_bool[ARRAY_SIZE];
     int max_profit;
     int i;
+
     makeNewItems(values, weights, items); // gets new values and weights
     max_profit = knapSack(weights, values, selected_bool);
 
     printf("Maximum profit: %d", max_profit);
     printf("\n");
 
-    char aa[11];
-    int rr = 0;
-    printf("Selected items: ");
+    printf("Selected items:");
     for (i = 0; i < ARRAY_SIZE; i++)
     {
         if (selected_bool[i] == 1)
         {
-            // printf("%c", items[i]);
-            aa[rr] = items[i];
-            aa[rr + 1] = ' ';
-            rr += 2;
-            // printf(" ");
+            printf(" %c",items[i]);
         }
     }
-    // printf("\b");
-    for (i = 0; i < rr - 1; i++)
-    {
-        printf("%c",aa[i]);
-    }
-    printf("\n");
+    
 }
